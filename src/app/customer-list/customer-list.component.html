@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone Number</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of customers; index as i">
+      <td> {{ c.id }}</td>
+      <td>{{ c.name }}</td>
+      <td>{{ c.address }}</td>
+      <td>{{ c.phoneNumber }}</td>
+      <td>
+        <a [routerLink]="['/customers/', c.id]">Update</a>
+      </td>
+      <td>
+        <button class="btn btn-primary" (click)="delete(c)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

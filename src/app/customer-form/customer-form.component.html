@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-6">
+    <form #f="ngForm" (ngSubmit)="save()">
+      <div *ngIf="(!id); else updateTitle">
+        <h2>
+          <small>
+            Register a new Customer
+          </small>
+          <hr>
+        </h2>
+      </div>
+      <ng-template #updateTitle>
+        <h2>
+          <small>
+            Update Customer
+          </small>
+          <hr>
+        </h2>
+      </ng-template>
+      <div class="form-group">
+        <label for="name">
+          Name
+        </label>
+        <input #name="ngModel" [(ngModel)]="customer.name" name="name" id="name" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+          This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address">
+          Address
+        </label>
+        <input #address="ngModel" [(ngModel)]="customer.address" name="address" id="address" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="address.touched && address.invalid">
+          This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">
+          Phone Number
+        </label>
+        <input #phoneNumber="ngModel" [(ngModel)]="customer.phoneNumber" name="phoneNumber" id="phoneNumber" type="text" class="form-control"
+          required>
+        <div class="alert alert-danger" *ngIf="phoneNumber.touched && phoneNumber.invalid">
+          This field is required.
+        </div>
+      </div>
+      <div *ngIf="(!id); else updateTemplate">
+        <button class="btn btn-primary" [disabled]="f.invalid">Save Customer</button>
+      </div>
+      <ng-template #updateTemplate>
+        <button type="button" (click)="update()" class="btn btn-primary" [disabled]="f.invalid">Update Customer</button>
+      </ng-template>
+
+
+    </form>
+  </div>
+</div>

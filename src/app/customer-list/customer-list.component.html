@@ -18,8 +18,9 @@
         <a [routerLink]="['/customers/', c.id]">Update</a>
       </td>
       <td>
-        <button class="btn btn-primary" (click)="delete(c)">Delete</button>
+        <button class="btn btn-warning" (click)="delete(c)">Delete</button>
       </td>
     </tr>
   </tbody>
 </table>
+<pager [pager]="pager" [pageAmountRange]="pageAmountRange" (click)="pageEvent()"></pager>

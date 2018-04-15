@@ -1,10 +1,10 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppErrorHandler } from './models/app-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { CustomerService } from './customer.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { HomeComponent } from './home/home.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
+import { PagerComponent } from './pager/pager.component';
 
 const routes = [
   {path: "new-customer", component: CustomerFormComponent}, 
@@ -32,12 +33,13 @@ const routes = [
     CustomerListComponent,
     HomeComponent,
     BsNavbarComponent,
+    PagerComponent,
     
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

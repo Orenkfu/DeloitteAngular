@@ -21,7 +21,7 @@ export class CustomerFormComponent implements OnInit{
   save(){
     this.customerService.create(this.customer).subscribe(
       response=> this.navigateToList()
-      );
+     ,err=>console.log( err.error.body)); 
   }
 
   update(){
@@ -29,6 +29,9 @@ export class CustomerFormComponent implements OnInit{
     .update(this.customer).subscribe(
         response => this.navigateToList())
   
+  }
+  log(value){
+    console.log(value);
   }
 
   navigateToList(){

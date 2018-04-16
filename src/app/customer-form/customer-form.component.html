@@ -39,11 +39,17 @@
         <label for="phoneNumber">
           Phone Number
         </label>
-        <input #phoneNumber="ngModel" [(ngModel)]="customer.phoneNumber" name="phoneNumber" id="phoneNumber" type="text" class="form-control"
-          required>
+        <input #phoneNumber="ngModel" [(ngModel)]="customer.phoneNumber" name="phoneNumber" id="phoneNumber" type="tel" pattern="^((\+|00)?972\-?|0)(([23489]|[57]\d)\-?\d{7})$"
+          class="form-control" required>
         <div class="alert alert-danger" *ngIf="phoneNumber.touched && phoneNumber.invalid">
-          This field is required.
+          <div *ngIf="phoneNumber.errors.required">
+            This field is required.
+          </div>
+          <div *ngIf="phoneNumber.errors.pattern">
+            Please insert a valid phone number.
+          </div>
         </div>
+
       </div>
       <div *ngIf="(!id); else updateTemplate">
         <button class="btn btn-primary" [disabled]="f.invalid">Save Customer</button>

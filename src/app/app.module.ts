@@ -18,6 +18,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { HomeComponent } from './home/home.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { PagerComponent } from './pager/pager.component';
+import { StorageService } from './storage.service';
 
 const routes = [
   {path: "new-customer", component: CustomerFormComponent}, 
@@ -45,7 +46,7 @@ const routes = [
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: ErrorHandler, useClass: AppErrorHandler },
-    CustomerService],
+    CustomerService, StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

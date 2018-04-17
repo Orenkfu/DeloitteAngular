@@ -22,21 +22,17 @@ export class CustomerFormComponent implements OnInit{
     this.customerService.create(this.customer).subscribe(
       response=> this.navigateToList()
      ,err=>console.log( err.error.body)); 
-  }
+  };
 
   update(){
     this.customerService
     .update(this.customer).subscribe(
         response => this.navigateToList())
-  
-  }
-  log(value){
-    console.log(value);
-  }
+  };
 
   navigateToList(){
 this.router.navigate(['/customers'])
-  }
+  };
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
